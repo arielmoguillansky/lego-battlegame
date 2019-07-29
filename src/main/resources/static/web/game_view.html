@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="styles/animate.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="dist/normalize.css" />
+
+    <link rel="stylesheet" href="dist/gridstack.css" />
+
+    <link rel="stylesheet" href="dist/gridstack-extra.css" />
+
+    <link id="pagestyle" rel="stylesheet" href="styles/style.css" />
+
+    <link rel="shortcut icon" href="styles/heroes/shortcut.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/index.css" />
+
+    <link rel="stylesheet" href="styles/footer-distributed.css" />
+
+    <link rel="stylesheet" href="styles/font/icomoon/style.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LEGO Avengers Battlegame</title>
+</head>
+
+<body class="gbody animated fadeIn" onload="togglePlay()">
+
+<audio loop id="music">
+    <source src="styles/heroes/gamesong.mp3" type="audio/mpeg">
+</audio>
+
+<nav class="navbar navbar-light bg-light">
+    <img src="styles/heroes/a1vengers.png" class="d-inline-block align-top" alt="header image">
+</nav>
+
+<div class="page-wrapper chiller-theme">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+        <span class="icon-bars"></span>
+    </a>
+    <nav id="sidebar" class="sidebar-wrapper">
+        <div class="sidebar-content">
+            <div class="sidebar-brand">
+                <span>MENU</span>
+                <div id="close-sidebar">
+                    <span class="icon-close"></span>
+                </div>
+            </div>
+            <div class="sidebar-header">
+                <div class="user-pic">
+                    <img id="picvil" class="img-responsive img-rounded" src="styles/heroes/picheore.png"
+                         alt="User picture">                </div>
+                <div class="user-info" id="user_data">
+                    <span class="user-name" id="userInfo"></span>
+                    <span class="user-role" id="playerSide"></span>
+                    <span class="user-status">
+            <span class="icon-circle"></span>
+            <span id="logger"></span>
+          </span>
+                </div>
+            </div>
+            <!-- sidebar-header  -->
+
+            <div class="sidebar-menu">
+
+                    <div id="gameTab">
+                        <table class="table table-striped table-dark" id="gameStatTab"></table>
+                    </div>
+
+                <ul>
+
+                    <li class="sidebar-dropdown">
+                        <a href="games.html">
+                            <span class="icon-circle-left"></span>
+                            RETURN TO GAMES
+                        </a>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+                        <a onclick="logout(event)">
+                            <span class="icon-sign-out"></span>
+                            <span>LOG OUT</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- sidebar-menu  -->
+        </div>
+        <!-- sidebar-content  -->
+    </nav>
+    <!-- sidebar-wrapper  -->
+
+</div>
+
+    <main class="container-fluid" id="gameView">
+<div class="row">
+    <div class="col" id="teaminfo"></div>
+    <div class="col" id="opteaminfo"></div>
+</div>
+
+        <div>
+            <button class="btnsound" onclick="change('icon1');togglePlay()">
+                <span id="icon1" class="icon-volume-medium" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <div class="row h-100">
+
+
+            <div class="col d-flex justify-content-center gridPad">
+
+
+
+                <div class="grid-ships">
+
+
+
+                <div id="grid" class="grid-stack grid-stack-10">
+
+
+
+                </div>
+
+            </div>
+
+                <div id="start_game">
+                    <button class="btn btn-dark" id="start_game_btn" />Avengers Assemble!</button>
+                    </div>
+                </div>
+
+
+
+            <div class="col d-flex justify-content-center gridPad">
+
+
+                <div class="grid-salvoes">
+                    <div id="unableGrid"><span class="prepareText" id="waitText"></span></div>
+                </div>
+
+            </div>
+
+            <div class="w-50"></div>
+            <div class="col d-flex justify-content-center" id="shoot">
+                <button class="btn btn-dark" id="shoot_btn" />ATTACK</button>
+            </div>
+
+        </div>
+    </main>
+
+
+<div class="container-fluid justify-content-center" id="lclip">
+    <div class="row justify-content-center">
+        <div>
+            <video id="loseClip" playsinline="playsinline">
+                <source src="styles/clips/lose.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid justify-content-center" id="wclip">
+    <div class="row justify-content-center">
+        <div>
+            <video id="winClip" playsinline="playsinline">
+                <source src="styles/clips/win.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid justify-content-center" id="tclip">
+    <div class="row justify-content-center">
+        <div>
+            <video id="tieClip" playsinline="playsinline">
+                <source src="styles/clips/tie.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
+
+<footer class="footer-distributed">
+
+    <div class="footer-right">
+
+        <a href="https://www.facebook.com/ariel.moguillansky"><span class="icon-facebook"></span></a>
+        <a href="www.linkedin.com/in/arielmoguillansky"><span class="icon-linkedin"></span></a>
+        <a href="https://github.com/arielmoguillansky"><span class="icon-github"></span></a>
+
+    </div>
+
+    <div class="footer-left">
+        <p>Programmed  <i class="far fa-lightbulb"></i> and designed  <i class="far fa-heart"></i> by Kemba Inc. &copy; 2019</p>
+    </div>
+
+</footer>
+
+
+<script src="https://kit.fontawesome.com/5a05f8222d.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+<script src="dist/jquery-ui.min.js"></script>
+
+<script src="dist/gridstack.js"></script>
+
+<script src="dist/gridstack.jQueryUI.js"></script>
+
+<script src="dist/jquery.ui.touch-punch.min.js"></script>
+
+<script src="scripts/grid.js"></script>
+
+<script src="scripts/game_view.js"></script>
+
+</body>
+
+</html>

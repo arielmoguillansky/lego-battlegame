@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link  rel="stylesheet" href="styles/index.css">
+    <link  rel="stylesheet" href="styles/side.css">
+    <link rel="shortcut icon" href="styles/heroes/shortcut.png">
+    <link rel="stylesheet" href="styles/animate.min.css">
+    <link rel="stylesheet" href="styles/footer-distributed.css" />
+    <link rel="stylesheet" href="styles/font/icomoon/style.css" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO Avengers Battlegame</title>
+</head>
+
+<body class="gbody animated fadeIn" onload="userFetch(); togglePlay()">
+
+    <audio id="music">
+        <source src="styles/heroes/avenger_song.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="thanosAudio">
+        <source src="styles/heroes/thanos.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="furyAudio">
+        <source src="styles/heroes/idareu.mp3" type="audio/mpeg">
+    </audio>
+
+
+       <!-- <header class="row header justify-content-end">
+
+            <div class="col-4" id="user_data">
+                <button class="btn btn-danger btn" onclick="logout(event)"/>Log Out</button>
+                <span class="info" id="userInfo"></span>
+            </div>
+
+        </header>-->
+   <nav class="navbar navbar-light bg-light">
+        <img src="styles/heroes/a1vengers.png" class="d-inline-block align-top" alt="header image">
+    </nav>
+
+    <div class="page-wrapper chiller-theme">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <span class="icon-bars"></span>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <span>MENU</span>
+                    <div id="close-sidebar">
+                        <span class="icon-close"></span>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded" src="styles/heroes/pic.png"
+                             alt="User picture">
+                    </div>
+                    <div class="user-info" id="user_data">
+          <span class="user-name" id="userInfo"></span>
+                        <span class="user-role">Avenger</span>
+                        <span class="user-status">
+            <span class="icon-circle"></span>
+            <span>Online</span>
+          </span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+
+                <div class="sidebar-menu">
+                    <ul>
+
+                        <li class="sidebar-dropdown">
+                            <a id="cbtn" data-gamebtn="create" onclick="setVolumeDown()">
+                                <span class="icon-gamepad"></span>
+                                NEW GAME
+                            </a>
+                        </li>
+
+                        <li class="sidebar-dropdown">
+                            <a onclick="logout(event)">
+                                <span class="icon-sign-out"></span>
+                                <span>LOG OUT</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+        </nav>
+        <!-- sidebar-wrapper  -->
+
+    </div>
+
+        <main class="container-fluid" id="gameContainer">
+        <div>
+            <button class="btnsound" onclick="change('icon1');togglePlay()">
+                <span id="icon1" class="icon-volume-medium" aria-hidden="true"></span>
+            </button>
+        </div>
+          <!--  <div id="create_game_btn" class=" row">
+                <div class="col"><button id="cbtn" class="btn btn-dark" data-gamebtn="create" onclick="setVolumeDown()"/>New Game</button>
+                </div>
+            </div>-->
+
+            <div class="row justify-content-center" id="tables">
+            <div class="col">
+                <h4>Game's Info</h4>
+
+
+                <table class="table table-hover" id="gameInfo"></table>
+            </div>
+
+        <div class="w-100"></div>
+
+        <div class="col">
+            <h4>All time Scorers</h4>
+
+            <table class="table table-hover" id="scoreTab"></table>
+        </div>
+        </div>
+        </main>
+
+        <div class="hideEl" id="out">
+            <div class="container animated fadeInLeft">
+                <button class="closeBtn" onclick="closeTab();setVolumeUp()">X</button>
+                <div class="container-forms">
+                    <div class="container-info">
+                        <div class="row h-100 align-items-center">
+                            <div class="col d-flex justify-content-center">
+
+                                    <button class="btn btnSide" id="furyBtn" onclick="furySound(); btnDisplay()">
+                                        AVENGER
+                                    </button>
+
+                            </div>
+
+                        <div class="col d-flex justify-content-center">
+
+                            <button class="btn btnSide" id="thanosBtn" onclick="thanosSound(); btnDisplay() ">
+                                VILLAIN
+                            </button>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="container-form">
+                        <div class="form-item log-in">
+                            <div class="table justify-content-center">
+                                <p id="furyP">
+                                    'I dare u mthfckr'
+                                </p>
+                                <img id="heroimg" data-type="HERO" onclick="sideBtn(this)" src="styles/heroes/fury.png">
+                            </div>
+                        </div>
+                        <div class="form-item sign-up">
+                            <div class="table">
+                                <p id="thanosP">
+                                    'Im inevitable'
+                                </p>
+                                <img id="villimg" data-type="VILLAIN" onclick="sideBtn(this)" src="styles/heroes/thanos.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <footer class="footer-distributed">
+
+        <div class="footer-right">
+
+            <a href="https://www.facebook.com/ariel.moguillansky"><span class="icon-facebook"></span></a>
+            <a href="www.linkedin.com/in/arielmoguillansky"><span class="icon-linkedin"></span></a>
+            <a href="https://github.com/arielmoguillansky"><span class="icon-github"></span></a>
+
+        </div>
+
+        <div class="footer-left">
+            <p>Programmed  <i class="far fa-lightbulb"></i> and designed  <i class="far fa-heart"></i> by Kemba Inc. &copy; 2019</p>
+        </div>
+
+    </footer>
+
+    <script src="https://kit.fontawesome.com/5a05f8222d.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="scripts/script.js"></script>
+<script type="text/javascript" src="scripts/side.js"></script>
+</body>
+</html>

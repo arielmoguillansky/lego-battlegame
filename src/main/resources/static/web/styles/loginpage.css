@@ -1,0 +1,130 @@
+main {
+    position: relative;
+    background-color: black;
+    height: 110vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+main video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+main .container {
+    position: relative;
+    z-index: 2;
+}
+@media only screen and (max-height:500px ) {
+    main .container{
+        overflow-y: scroll;
+    }
+}
+
+main .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+#title{
+    background-image: url("heroes/a1vengers.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 25vh;
+    background-position: center center;
+    margin-top: 50px;
+}
+#form{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.card{
+    background-color: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 50%;
+}
+@media only screen and (max-width: 800px) {
+    .card{
+        width: 100%;
+    }
+}
+.form-control{
+    background-color: transparent;
+    color: white;
+}
+label{
+    color: white;
+}
+.card-header{
+    border-bottom: 1px solid white;
+    background-color: rgba(255,255,255,0.2);
+}
+input[type=email]:focus{
+    outline: 2px solid #ffd931;
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #ffd931;
+    color: white;
+}
+input[type=password]:focus{
+    outline: 2px solid #ffd931;
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #ffd931;
+    color: white;
+}
+input[type=text]:focus{
+    outline: 2px solid #ffd931;
+    background-color: transparent;
+    box-shadow: 0 0 0 2px #ffd931;
+    color: white;
+}
+.welcome{
+    color: white;
+}
+a{
+    color: #ffd931;
+}
+a:hover{
+    color: #ffd931;
+}
+.foot{
+    height:25vh;
+    background-color: black;
+    color: white;
+    margin-top: 0;
+    padding: 25px 0;
+
+}
+.w{
+    width: 50%;
+}
+#heroe{
+
+    padding: 0;
+}
+#villain{
+
+    padding: 0;
+
+}
+.hideEl{
+    display: none;
+}

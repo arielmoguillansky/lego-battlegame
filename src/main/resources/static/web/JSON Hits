@@ -1,0 +1,8 @@
+{"salvoes":{
+ "turn" : 1,
+    "player" : "c.obrian@ctu.gov",
+    "game_player_id" : 2,
+    "hits" : ["H3", "A2"],
+    "sinks" : [{type:"", locations:""},{type:"", locations:""}]
+    }
+    }
