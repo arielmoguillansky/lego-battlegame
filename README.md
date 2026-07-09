@@ -31,6 +31,9 @@ docker run -p 8080:8080 lego-battlegame
 
 Then open http://localhost:8080/web/login.html
 
+The app seeds demo data on startup (in-memory; resets on every restart), so you
+can sign up for a new account or explore the games lobby right away.
+
 ### Without Docker
 
 Requires JDK 17 and Gradle 7.x.
@@ -38,17 +41,6 @@ Requires JDK 17 and Gradle 7.x.
 ```bash
 gradle bootRun
 ```
-
-### Seed login
-
-The app seeds demo data on startup. Sign in with:
-
-```
-Email:    j.bauer@ctu.gov
-Password: 24
-```
-
-(The data is in-memory and resets on every restart.)
 
 ## Deploy
 
