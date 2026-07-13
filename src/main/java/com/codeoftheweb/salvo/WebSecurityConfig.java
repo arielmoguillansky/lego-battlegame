@@ -20,7 +20,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
 
 
-                .antMatchers( "/web/scripts/forms.js", "/web/scripts/swapStyle.js", "/web/scripts/side.js", "/web/login.html", "/api/login", "/web/scripts/script.js",  "/web/styles/**", "/web/dist/**", "/api/games", "/api/players").permitAll()
+                .antMatchers( "/", "/web/scripts/forms.js", "/web/scripts/swapStyle.js", "/web/scripts/side.js", "/web/login.html", "/api/login", "/web/scripts/script.js",  "/web/styles/**", "/web/dist/**", "/api/games", "/api/players").permitAll()
 
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .antMatchers("/**").hasAuthority("USER");
